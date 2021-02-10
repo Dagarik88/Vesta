@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  report-service:
+    image: report-service
+    build:
+      context: .
+      dockerfile: ReportService.Api/Dockerfile

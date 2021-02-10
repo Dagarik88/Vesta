@@ -1,0 +1,10 @@
+﻿{{name}}
+--------------------------------------------
+{{for department in departments}}
+{{department.name}}
+    {{for employee in department.employees}}
+{{employee.name}}         {{employee.salary}}р
+    {{ end }}
+--------------------------------------------
+{{ end }}
+Всего по предприятию {{total_salary}}р

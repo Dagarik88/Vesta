@@ -1,0 +1,7 @@
+﻿ReportService.Api/obj
+ReportService.Api/.idea
+ReportService.Application/obj
+ReportService.Domain/obj
+ReportService.Infrastructure/obj
+.idea
+ReportService.Tests/obj
