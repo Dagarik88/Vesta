@@ -31,7 +31,11 @@ namespace ReportService.Infrastructure
         {
             var options = new InfrastructureOptions();
             setUp(options);
-
+            
+            services.AddOptions<InfrastructureOptions>()
+                .Configure(x => setUp(x))
+                .Validate<IValidator<InfrastructureOptions>>((x, validator) => validator.Validate(x).IsValid);
+            
             services.RegisterValidators(Assembly.GetExecutingAssembly());
 
             services.AddRepositories(options.DbConnection);
