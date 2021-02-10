@@ -5,3 +5,8 @@ ReportService.Domain/obj
 ReportService.Infrastructure/obj
 .idea
 ReportService.Tests/obj
+ReportService.Api/bin
+ReportService.Api/ReportService.Api.xml
+ReportService.Application/bin
+ReportService.Domain/bin
+ReportService.Infrastructure/bin

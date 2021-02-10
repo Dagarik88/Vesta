@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using ReportService.Domain.Exceptions;
 using ReportService.Infrastructure.Clients.Interface;
 
 namespace ReportService.Infrastructure.Clients
@@ -43,15 +44,23 @@ namespace ReportService.Infrastructure.Clients
         {
             var result = string.Empty;
 
-            var response = await _httpClient.GetAsync($"/api/inn/{inn}");
-
-            response.EnsureSuccessStatusCode();
-
-            if (response.StatusCode == HttpStatusCode.OK)
+            try
             {
-                result = await response.Content.ReadAsStringAsync();
-            }
+                var response = await _httpClient.GetAsync($"/api/inn/{inn}");
 
+                response.EnsureSuccessStatusCode();
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    result = await response.Content.ReadAsStringAsync();
+                }
+
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new SalaryException($"Не удалось получить бухгалтерский код сотрудника по {inn}", ex);
+            }
+            
             return result;
         }
 
