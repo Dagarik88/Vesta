@@ -59,7 +59,7 @@ namespace ReportService.Domain.Services
 
             var report = new ReportDto
             {
-                Name = $"{MonthNameReoslver.GetMonthName(month) } {year}",
+                Name = $"{MonthNameResolver.GetMonthName(month) } {year}",
                 Departments = department ?? new List<DepartmentDto>(),
                 TotalSalary = department?.SelectMany(x => x.Employees.Select(e => e.Salary)).Sum() ?? 0
             };

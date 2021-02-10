@@ -5,7 +5,7 @@ using ReportService.Domain.Helper;
 
 namespace ReportService.Tests.Domain.Helper
 {
-    public class MonthNameReoslverTests
+    public class MonthNameResolverTests
     {
         #region Тесты
 
@@ -13,7 +13,7 @@ namespace ReportService.Tests.Domain.Helper
         [TestCaseSource(nameof(TestCasesMonth))]
         public void MonthNameResolved(int month, string monthName)
         {
-            var result = MonthNameReoslver.GetMonthName(month);
+            var result = MonthNameResolver.GetMonthName(month);
 
             Assert.AreEqual(monthName, result, "Имена месецев не совпадает.");
         }
@@ -23,7 +23,7 @@ namespace ReportService.Tests.Domain.Helper
         public void MonthNameException()
         {
             Assert.Throws<ArgumentException>(() =>
-                MonthNameReoslver.GetMonthName(13));
+                MonthNameResolver.GetMonthName(13));
         }
 
         #endregion

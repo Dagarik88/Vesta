@@ -5,7 +5,7 @@ namespace ReportService.Domain.Helper
     /// <summary>
     /// Резолвер наименования месецев.
     /// </summary>
-    public static class MonthNameReoslver
+    public static class MonthNameResolver
     {
         /// <summary>
         /// Возвращает наименование месяца по порядковому номеру.
